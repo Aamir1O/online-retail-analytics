@@ -25,6 +25,8 @@ database design, and business SQL analysis.
 6. Does revenue growth come from more orders or larger orders?
 7. Is the business B2B or B2C — what does the data say?
 8. Does the business follow a Pareto revenue distribution?
+9. How does revenue grow month over month — is growth accelerating or slowing?
+10. How are customers distributed across revenue segments — High, Mid, Low, Micro?
 
 ## Tools Used
 | Tool | Purpose |
@@ -83,11 +85,20 @@ online-retail-analytics/
 - Revenue peaks are entirely volume-driven, not basket-size driven
 - No evidence of successful upsell or cross-sell strategy over the period
 
-## SQL Highlights
-- Window functions (LAG, NTILE, SUM OVER) for growth rate and Pareto analysis
-- CTEs for multi-step customer segmentation
-- Date functions for monthly and day-of-week aggregations
-- Filtering non-product stock codes for clean product analysis
+## SQL Queries (10 Business Queries)
+| # | Query | Technique Used |
+|---|---|---|
+| 1 | Monthly Revenue Trend | GROUP BY, TO_CHAR, date aggregation |
+| 2 | Revenue by Country | GROUP BY, ORDER BY, AOV calculation |
+| 3 | Top 10 Products by Revenue | WHERE filter, GROUP BY, ILIKE |
+| 4 | Top 10 Customers by Revenue | GROUP BY, NULL filter, AOV calculation |
+| 5 | Average Order Value by Month | Date grouping, division aggregation |
+| 6 | Repeat vs One-Time Customers | CTE, CASE WHEN, window function |
+| 7 | Revenue by Day of Week | EXTRACT, TO_CHAR, DOW grouping |
+| 8 | Monthly Revenue Growth Rate | CTE, LAG window function |
+| 9 | Customer Revenue Segments | CTE, CASE WHEN tiers |
+| 10 | Pareto Customer Decile Analysis | CTE, NTILE window function |
+
 
 ## How to Run
 
@@ -95,8 +106,10 @@ online-retail-analytics/
 1. Clone this repository
 2. Download the dataset from the UCI link above
 3. Install dependencies:
+```
+   pip install pandas sqlalchemy psycopg2-binary matplotlib
+```
 
-pip install pandas sqlalchemy psycopg2-binary matplotlib
 4. Run notebooks in order: `01_data_understanding.ipynb` → `02_eda_analysis.ipynb`
 
 ### SQL
