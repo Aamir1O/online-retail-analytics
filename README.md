@@ -40,7 +40,7 @@ database design, and business SQL analysis.
 > Power BI dashboard — in progress
 
 ## Project Structure
-
+```
 online-retail-analytics/
 ├── notebooks/
 │   ├── 01_data_understanding.ipynb   # Load, clean, feature engineer
@@ -51,7 +51,7 @@ online-retail-analytics/
 ├── powerbi/
 │   └── screenshots/                  # Dashboard screenshots (coming soon)
 └── README.md
-
+```
 ## Key Findings
 
 ### Revenue & Seasonality
