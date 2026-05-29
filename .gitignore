@@ -1,0 +1,20 @@
+# Data files
+data/raw/
+*.xlsx
+
+# Python
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.dbd
+data/raw/
+data/processed/
+
+*.csv
